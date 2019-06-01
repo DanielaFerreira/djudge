@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <form action="/djudge/SubmissionServlet" enctype="multipart/form-data" method="POST">
+
+            <label>Submeta seu código</label>
+
+            <br><br>
+            
+            <input name="source" type="file">
+            
+            <br><br>
+
+            <select name="compilerId">
+                <option>  </option>
+                <option  value="11">C</option>    
+                <option value="10">Java</option> 
+                <option value="4">Python</option> 
+            </select>
+
+            <input style="margin-left:30px;" type="submit">
+
+        </form>
+    </body>
+</html>
