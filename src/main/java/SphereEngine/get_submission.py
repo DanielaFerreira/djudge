@@ -16,12 +16,13 @@ client = CompilersClientV4(accessToken, endpoint)
 
 # API usage
 try:
-    response = client.submissions.get(82807704)
-    print(response)
+   response = client.submissions.get(83091277)
+   print(response)
 except SphereEngineException as e:
-    if e.code == 401:
-        print('Invalid access token')
-    elif e.code == 403:
-        print('Access to the submission is forbidden')
-    elif e.code == 404:
-        print('Submission does not exist')
+   if e.code == 401:
+       print('Invalid access token')
+   elif e.code == 403:
+       print('Access to the submission is forbidden')
+   elif e.code == 404:
+       print('Submission does not exist')
+

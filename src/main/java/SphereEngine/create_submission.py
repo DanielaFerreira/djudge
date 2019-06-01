@@ -14,7 +14,7 @@ endpoint = 'a53fdb4d.compilers.sphere-engine.com'
 client = CompilersClientV4(accessToken, endpoint)
 
 # API usage
-source = 'print("dani")'
+source = 'print("helu word")'
 compiler = 4 # Python language
 input = '2'
 
