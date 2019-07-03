@@ -25,6 +25,7 @@ public class Teste {
 	model.bean.Aluno a = new model.bean.Aluno();
 	GenericDAO<model.bean.Aluno> daoA = new GenericDAO<>();
 	a.setNome("Eduardo");
+	a.setSenha("123");
 	daoA.saveOrUpdate(a);
 
 

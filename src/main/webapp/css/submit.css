@@ -8,7 +8,7 @@ body{
 h1{
     max-width: 480px;
     text-align: center;
-    margin-top: 300px;
+    margin: 300px auto;
     color: white;
 }
 
@@ -57,13 +57,13 @@ h1:after{
     color: white;
 }
 
-.btn-cadastro .btn-login {
+.dropdown-toggle {
     font-size: 14px;
     font-weight: bold;
     float:right;
 }
 
-.btn-cadastro {
+.dropdown-toggle{
     background-color: black;
     border-color: white;
     color: white!important;
@@ -175,4 +175,21 @@ h1:after{
     background-color: #0C0A10;
     color: white;
     font-size: 0.9rem;
+}
+
+.custom-file{
+	width: 500px;
+	margin: 250px 412px;
+}
+
+.btn-lg{
+    background-color: black;
+    border-color: white;
+    color: white!important;
+    margin-top: 50px;
+    margin: 150px;
+}
+
+.btn-lg:hover{
+ text-shadow:black 0.1em 0.1em 0.2em;
 }

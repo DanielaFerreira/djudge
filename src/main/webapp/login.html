@@ -20,25 +20,24 @@
 
         <div id="header" style="margin-bottom: 80px;"></div> 
 
-        <div class="card col-md-4 mx-auto my-5">
+        <div class="card col-md-4 mx-auto">
             <div class="card-body">
 
                 <form class="form-sign-in" action="/djudge/LoginServlet" method="POST">
 
                     <div class="col-12 text-center">
-                        <h2 style="font-weight: bold;">Login</h2>
+                        <h2 style="font-weight: bold;">Login no Djudge</h2>
                     </div>
 
                     <div class="form-group">
-                        <label>E-mail</label>
-                        <input name="email" type="email" class="form-control" placeholder="Digite seu e-mail" required onchange="this.value = this.value.trim()">
-                        <small id="emailHelp" class="form-text text-muted">Seu e-mail não será compartilhado.</small>
+                        <label>Nome de usuário ou e-mail</label>
+                        <input name="usuario" type="text" class="form-control" required onchange="this.value = this.value.trim()">
                     </div>
 
                     <div class="form-group">
-                        <label>Digite sua senha</label>
+                        <label>Senha</label>
                         <div class="input-group">
-                            <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)" required onchange="this.value = this.value.trim()">
+                            <input name="senha" type="password" class="form-control" maxlength="20" onkeypress="capsLock(event)" required onchange="this.value = this.value.trim()">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <a href="#" class="text-dark" id="icon-click">

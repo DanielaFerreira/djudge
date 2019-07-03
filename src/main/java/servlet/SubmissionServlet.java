@@ -149,6 +149,8 @@ public class SubmissionServlet extends HttpServlet {
 // Retorna dados da submissão
 	String url2 = "https://a53fdb4d.compilers.sphere-engine.com/api/v4/submissions/" + id + "?access_token=8bce219ca0c54390d6b832fa542470b2";
 	
+	System.out.println(url2);
+	
 	HttpClient client2 = HttpClientBuilder.create().build();
 	HttpGet request3 = new HttpGet(url2);
 

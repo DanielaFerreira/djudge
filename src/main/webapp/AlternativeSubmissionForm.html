@@ -6,7 +6,7 @@
     </head>
     <body>
 
-        <form action="/djudge/SubmissionServlet" enctype="multipart/form-data" method="POST">
+        <form action="/djudge/JDoodleServlet" enctype="multipart/form-data" method="POST">
 
             <label>Submeta seu código</label>
 
@@ -18,9 +18,11 @@
 
             <select name="compilerId">
                 <option>  </option>
-                <option  value="11">C</option>    
-                <option value="10">Java</option> 
-                <option value="4">Python</option> 
+                <option  value="c">C</option>   
+                <option  value="cpp">C++</option>                  
+                <option value="java">Java</option> 
+                <option value="python2">Python 2</option> 
+                <option value="python3">Python 3</option> 
             </select>
 
             <input style="margin-left:30px;" type="submit">

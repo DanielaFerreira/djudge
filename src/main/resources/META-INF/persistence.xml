@@ -5,7 +5,7 @@
     <!-- Implementação do JPA -->
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <!-- Lista de entidades -->
-    <class>model.bean.Administrador </class>
+    <class>model.bean.Administrador</class>
     <class>model.bean.Aluno</class>
     <class>model.bean.Avaliador</class>
     <class>model.bean.PrivQuestioCodFonte</class>
