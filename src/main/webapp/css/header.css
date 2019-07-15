@@ -1,8 +1,6 @@
 body{
     background-color: #000000;
-    font-family: "Courier New";
 }
-
 
 /*definitivo*/
 h1{
@@ -36,11 +34,9 @@ h1:after{
 
 .navbar {
     text-transform:none;
-    font-weight: 700;
     font-size: 14px;
     letter-spacing: 1px;
     background: rgba(0, 0, 0, 0.9)!important;
-    font-family: 'Courier New';
     color: #fff;
 }
 
@@ -58,7 +54,7 @@ h1:after{
 }
 
 .btn-cadastro .btn-login {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     float:right;
 }
@@ -89,7 +85,6 @@ h1:after{
     line-height: 50px;
     font-size:24px;
     float:left;
-    font-weight:bold;
 
 }
 
@@ -111,7 +106,6 @@ h1:after{
 }
 
 .animated-icon1 span{
-
     display: block;
     position: absolute;
     height: 3px;
@@ -164,15 +158,4 @@ h1:after{
     -moz-transform: rotate(-135deg);
     -o-transform: rotate(-135deg);
     transform: rotate(-135deg);
-}
-
-.footer{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-top: 1px solid white;
-    background-color: #0C0A10;
-    color: white;
-    font-size: 0.9rem;
 }
