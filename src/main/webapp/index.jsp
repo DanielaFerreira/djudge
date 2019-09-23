@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang = "pt-br">
+<html lang="pt-br">
     <head>
-        <meta charset = "utf-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Djudge - Corretor de Questões</title>
         <link rel="stylesheet" href="css/fontawesome-all.css">
@@ -21,9 +21,9 @@
         <div class="submeter">
             <p class="text"><b>A Ferramenta da Maratona de Programação do IFAM</b></p>
 
-            <a href="" class="btn btn-primary"><i class="fas fa-file-alt fa"></i>Saiba mais</a>
-            <small>ou</small>
-            <a href="" class="btn btn-outline-light"><i class="fas fa-file-code fa"></i>Submeta seu código-fonte</a>
+<!--            <a href="" class="btn btn-primary"><i class="fas fa-file-alt fa"></i>Saiba mais</a>
+            <small>ou</small>-->
+            <a href="questao/listar.jsp" class="btn btn-outline-light"><i class="fas fa-file-code fa"></i>Submeta seu código-fonte</a>
         </div>
 
 
@@ -37,15 +37,15 @@
                 </div>
 
                 <div class="col-md-4">
-                    <h3>O Código-gabarito</h3>
+                    <h3>Código-gabarito</h3>
                     <div class="feature">
                         <i class="fab fa-creative-commons-share fa-3x"></i>
                     </div>
-                    <p class="lead">Saídas equivalentes as do código-gabarito</p>
+                    <p class="lead">Saídas equivalentes às do código-gabarito</p>
                 </div>
 
                 <div class="col-md-4">
-                    <h3>A Estrutura</h3>
+                    <h3>Estrutura</h3>
                     <div class="feature">
                         <i class="fas fa-code fa-3x"></i>
                     </div>
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <h3>O Tempo de Execução</h3>
+                    <h3>Tempo de Execução</h3>
                     <div class="feature">
                         <i class="fas fa-clock fa-3x"></i>
                     </div>

@@ -8,27 +8,28 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import model.dao.BaseEntity;
 
+/**
+ *
+ * @author eddunic
+ */
 @Entity
-public class QuestaoRestricao implements Serializable, BaseEntity {
+public class QuestaoExemplo implements Serializable, BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String restricao;
-    
-    private String id_questao;
+    private String exemplo;
 
     @ManyToOne
     private Questao questao;
 
-    public QuestaoRestricao() {
+    public QuestaoExemplo() {
     }
 
-    public QuestaoRestricao(Long id, String restricao, String id_questao) {
+    public QuestaoExemplo(Long id, String exemplo) {
         this.id = id;
-        this.restricao = restricao;
-        this.id_questao = id_questao;
+        this.exemplo = exemplo;
     }
 
     @Override
@@ -40,12 +41,12 @@ public class QuestaoRestricao implements Serializable, BaseEntity {
         this.id = id;
     }
 
-    public String getRestricao() {
-        return restricao;
+    public String getExemplo() {
+        return exemplo;
     }
 
-    public void setRestricao(String restricao) {
-        this.restricao = restricao;
+    public void setExemplo(String exemplo) {
+        this.exemplo = exemplo;
     }
 
     public Questao getQuestao() {
@@ -54,14 +55,6 @@ public class QuestaoRestricao implements Serializable, BaseEntity {
 
     public void setQuestao(Questao questao) {
         this.questao = questao;
-    }
-    
-    public String getIdQuestao() {
-        return id_questao;
-    }
-
-    public void setIdQuestao(String id_questao) {
-        this.id_questao = id_questao;
     }
 
 }

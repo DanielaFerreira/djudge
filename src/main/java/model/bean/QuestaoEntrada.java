@@ -10,41 +10,34 @@ import model.dao.BaseEntity;
 
 @Entity
 public class QuestaoEntrada implements Serializable, BaseEntity {
-       
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; 
-    
-    @Id
+    private Long id;
+
     private String entrada;
-    
-    @Id
+
+    private String id_questao;
+
     @ManyToOne
     private Questao questao;
-
-    public QuestaoEntrada(Long id, String entrada) {
-        this.id = id;
-        this.entrada = entrada;
-    }
 
     public QuestaoEntrada() {
     }
 
+    public QuestaoEntrada(Long id, String entrada, String id_questao) {
+        this.id = id;
+        this.entrada = entrada;
+        this.id_questao = id_questao;
+    }
+
     @Override
     public Long getId() {
-	return id;
+        return id;
     }
 
     public void setId(Long id) {
-	this.id = id;
-    }
-
-    public Questao getQuestao() {
-	return questao;
-    }
-
-    public void setQuestao(Questao questao) {
-	this.questao = questao;
+        this.id = id;
     }
 
     public String getEntrada() {
@@ -54,4 +47,21 @@ public class QuestaoEntrada implements Serializable, BaseEntity {
     public void setEntrada(String entrada) {
         this.entrada = entrada;
     }
+
+    public Questao getQuestao() {
+        return questao;
+    }
+
+    public void setQuestao(Questao questao) {
+        this.questao = questao;
+    }
+
+    public String getIdQuestao() {
+        return id_questao;
+    }
+
+    public void setIdQuestao(String id_questao) {
+        this.id_questao = id_questao;
+    }
+    
 }

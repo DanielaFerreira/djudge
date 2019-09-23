@@ -1,10 +1,12 @@
 package model.bean;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import model.dao.BaseEntity;
 
@@ -15,19 +17,22 @@ public class QuestaoImagem implements Serializable, BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; 
     
-    @Id
-    private String imagem;
+    @Lob
+    @Column(columnDefinition = "longblob")
+    private byte[] imagem;
     
-    @Id
+    private String id_questao;
+    
     @ManyToOne
     private Questao questao;
 
     public QuestaoImagem() {
     }
 
-    public QuestaoImagem(Long id, String imagem) {
+    public QuestaoImagem(Long id, byte[] imagem, String id_questao) {
         this.id = id;
         this.imagem = imagem;
+        this.id_questao = id_questao;
     }
 
     @Override
@@ -39,11 +44,11 @@ public class QuestaoImagem implements Serializable, BaseEntity {
         this.id = id;
     }
 
-    public String getImagem() {
+    public byte[] getImagem() {
         return imagem;
     }
 
-    public void setImagem(String imagem) {
+    public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
 
@@ -53,6 +58,14 @@ public class QuestaoImagem implements Serializable, BaseEntity {
 
     public void setQuestao(Questao questao) {
 	this.questao = questao;
+    }
+    
+     public String getIdQuestao() {
+        return id_questao;
+    }
+
+    public void setIdQuestao(String id_questao) {
+        this.id_questao = id_questao;
     }
     
 }

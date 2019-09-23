@@ -19,19 +19,20 @@ public class QuestaoSaidaEsperada implements Serializable, BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Id
     private String saidaEsperada;
+    
+    private String id_questao;
 
-    @Id
     @ManyToOne
     private Questao questao;
 
     public QuestaoSaidaEsperada() {
     }
 
-    public QuestaoSaidaEsperada(Long id, String saidaEsperada) {
+    public QuestaoSaidaEsperada(Long id, String saidaEsperada, String id_questao) {
         this.id = id;
         this.saidaEsperada = saidaEsperada;
+        this.id_questao = id_questao;
     }
 
     @Override
@@ -57,6 +58,14 @@ public class QuestaoSaidaEsperada implements Serializable, BaseEntity {
 
     public void setQuestao(Questao questao) {
         this.questao = questao;
+    }
+    
+    public String getIdQuestao() {
+        return id_questao;
+    }
+
+    public void setIdQuestao(String id_questao) {
+        this.id_questao = id_questao;
     }
 
 }

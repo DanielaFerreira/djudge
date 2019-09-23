@@ -1,4 +1,5 @@
-package servlet;
+//salva localmente arquivo submetido, compila e retorna a saida
+package util;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,23 +10,16 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Iterator;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
  * @author eddunic, Felipe, Ronaldo
  */
+
 enum Client {
 
     //Cliente("ID", "Secret")
@@ -58,66 +52,15 @@ enum Client {
 }
 
 @MultipartConfig
-public class JDoodleServlet extends HttpServlet {
+public class JDoodle {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public String post(HttpServletRequest request, HttpServletResponse response, File uploadedFile, String value)
             throws ServletException, IOException {
-        doPost(request, response);
-    }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
 
         JDoodleOutputFormat jdof; //classe para formatar a saída do JDoodle
         JDoodleCodeFormat jdcf; //classe para formatar script a ser enviado ao JDoodle
-        PrintWriter out = response.getWriter();
-
-        String value = null; //Compiler value
-
-        //Read archive
-        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-
-        File uploadedFile = null;
-
-        if (isMultipart) {
-            FileItemFactory factory = new DiskFileItemFactory();
-            ServletFileUpload upload = new ServletFileUpload(factory);
-
-            try {
-                List items = upload.parseRequest(request);
-                Iterator iterator = items.iterator();
-                while (iterator.hasNext()) {
-                    FileItem item = (FileItem) iterator.next();
-
-                    if (!item.isFormField()) {
-                        String fileName = item.getName();
-
-                        File path = new File("/home/eddunic/NetBeansProjects/djudge/");
-                        if (!path.exists()) {
-                            boolean status = path.mkdirs();
-                        }
-
-                        uploadedFile = new File(path + "/" + fileName);
-                        System.out.println(uploadedFile.getAbsolutePath());
-                        item.write(uploadedFile);
-                    } else {
-                        String name = item.getFieldName();
-                        value = item.getString();
-
-                        // **************************************************
-                        // Process your name and value pairs here! *****
-                        // **************************************************
-                        System.out.println("Found field " + name + " and value " + value);
-                    }
-                }
-            } catch (FileUploadException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
 
         jdcf = new JDoodleCodeFormat(uploadedFile, value); //formata o uploadFile
 
@@ -172,49 +115,43 @@ public class JDoodleServlet extends HttpServlet {
             }
         }
 
-        try {
-            URL url = new URL("https://api.jdoodle.com/v1/execute");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
+        URL url = new URL("https://api.jdoodle.com/v1/execute");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setDoOutput(true);
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json");
 
-            String input = "{\"clientId\": \"" + clientId + "\",\"clientSecret\":\"" + clientSecret + "\",\"script\":\"" + script
-                    + "\",\"language\":\"" + language + "\",\"versionIndex\":\"" + versionIndex + "\"} ";
+        String input = "{\"clientId\": \"" + clientId + "\",\"clientSecret\":\"" + clientSecret + "\",\"script\":\"" + script
+                + "\",\"language\":\"" + language + "\",\"versionIndex\":\"" + versionIndex + "\"} ";
 
-            System.out.println(input);
+        System.out.println(input);
 
-            OutputStream outputStream = connection.getOutputStream();
-            outputStream.write(input.getBytes());
-            outputStream.flush();
+        OutputStream outputStream = connection.getOutputStream();
+        outputStream.write(input.getBytes());
+        outputStream.flush();
 
-            if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                throw new RuntimeException("Please check your inputs : HTTP error code : " + connection.getResponseCode());
-            }
-
-            BufferedReader bufferedReader;
-            bufferedReader = new BufferedReader(new InputStreamReader(
-                    (connection.getInputStream())));
-
-            System.out.println("Output from JDoodle .... \n");
-
-            String saidaJDoodle, concat = "";
-            while ((saidaJDoodle = bufferedReader.readLine()) != null) {
-                concat += saidaJDoodle;
-            }
-
-            jdof = new JDoodleOutputFormat(concat, language); //formata a saída
-
-            System.out.println(jdof.getCodeOutput());
-            out.println(jdof.getCodeOutput());
-
-            connection.disconnect();
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+            throw new RuntimeException("Please check your inputs : HTTP error code : " + connection.getResponseCode());
         }
 
+        BufferedReader bufferedReader;
+        bufferedReader = new BufferedReader(new InputStreamReader(
+                (connection.getInputStream())));
+
+        System.out.println("Output from JDoodle .... \n");
+
+        String saidaJDoodle, concat = "";
+        while ((saidaJDoodle = bufferedReader.readLine()) != null) {
+            concat += saidaJDoodle;
+        }
+
+        jdof = new JDoodleOutputFormat(concat, language); //formata a saída
+
+        System.out.println(jdof.getCodeOutput());
+
+        connection.disconnect();
+
+        return jdof.getCodeOutput();
     }
+
 }

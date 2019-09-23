@@ -14,7 +14,7 @@
 
                     <!-- Content -->
                     <h5 class="font-weight-bold text-uppercase mb-4">Djudge</h5>
-                    <p style="text-align: justify;">Djudge é um juiz online criado para auxiliar a coodernação nas maratonas de programação do IFAM.</p>
+                    <p style="text-align: justify;">Djudge é um juiz online criado para auxiliar a coordenação nas maratonas de programação do IFAM.</p>
 
 
                 </div>
@@ -23,9 +23,9 @@
                 <hr class="clearfix w-100 d-md-none">
 
                 <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+<!--                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
 
-                    <!-- Links -->
+                     Links 
                     <h5 class="font-weight-bold text-uppercase mb-4">Sobre</h5>
                     
                     <ul class="list-unstyled">
@@ -36,7 +36,7 @@
                         </li>
                     </ul>
 
-                </div>
+                </div>-->
                 <!-- Grid column -->
 
                 <hr class="clearfix w-100 d-md-none">
@@ -54,7 +54,7 @@
                         </li>
                         <li>
                             <p>
-                                <i class="fas fa-envelope mr-3"></i> equipe.djudge@ifam.edu.br</p>
+                                <i class="fas fa-envelope mr-3"></i> eddunic@gmail.com</p>
                         </li>
                         <li>
                             <p>
@@ -66,17 +66,17 @@
                 <!-- Grid column -->
 
                 <hr class="clearfix w-100 d-md-none">
-
-                <!-- Grid column -->
+<!--
+                 Grid column 
                 <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
 
-                    <!-- Social buttons -->
+                     Social buttons 
                     <h5 class="font-weight-bold text-uppercase mb-4">Siga-nos</h5>
 
                     <i class="fab fa-facebook-f"></i>
 
                 </div>
-                <!-- Grid column -->
+                 Grid column -->
 
             </div>
             <!-- Grid row -->
